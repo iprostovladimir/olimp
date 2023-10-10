@@ -7,7 +7,13 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Thumbs, Pagination, EffectFade } from "swiper";
+import Swiper, {
+  Navigation,
+  Thumbs,
+  Pagination,
+  EffectFade,
+  A11y,
+} from "swiper";
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -50,7 +56,7 @@ function initSliders() {
     const previewSliderThumbs = new Swiper(".js-preview-thumbs", {
       // Подключаем модули слайдера
       // для конкретного случая
-      modules: [Navigation, Pagination, Thumbs],
+      modules: [Navigation, Pagination, Thumbs, A11y],
       // effect: "fade",
       // autoplay: {
       // 	delay: 3000,
@@ -58,7 +64,7 @@ function initSliders() {
       // },
       observer: true,
       observeParents: true,
-      slidesPerView: "auto",
+      // slidesPerView: "auto",
       spaceBetween: 32,
       // autoHeight: true,
       speed: 800,
@@ -79,12 +85,12 @@ function initSliders() {
       },
       breakpoints: {
         320: {
-          slidesPerView: "auto",
+          slidesPerView: 4,
           spaceBetween: 20,
           autoHeight: true,
         },
         768: {
-          slidesPerView: "auto",
+          slidesPerView: 4,
           spaceBetween: 20,
         },
         992: {
@@ -92,7 +98,7 @@ function initSliders() {
           spaceBetween: 20,
         },
         1268: {
-          slidesPerView: "auto",
+          slidesPerView: 3,
           spaceBetween: 32,
         },
       },
@@ -101,7 +107,7 @@ function initSliders() {
     const previewSlider = new Swiper(".js-preview-slider", {
       // Подключаем модули слайдера
       // для конкретного случая
-      modules: [Navigation, Pagination, Thumbs],
+      modules: [Navigation, Pagination, Thumbs, A11y],
       effect: "fade",
       // autoplay: {
       // 	delay: 3000,
@@ -153,8 +159,27 @@ function initSliders() {
       thumbs: {
         swiper: {
           el: ".js-preview-thumbs",
-          slidesPerView: "auto",
           spaceBetween: 32,
+
+          breakpoints: {
+            320: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              autoHeight: true,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1268: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+          },
         },
       },
       on: {},
@@ -162,7 +187,7 @@ function initSliders() {
     const textureSlider = new Swiper(".js-texture-slider", {
       // Подключаем модули слайдера
       // для конкретного случая
-      modules: [Navigation, Pagination],
+      modules: [Navigation, Pagination, A11y],
       // effect: "fade",
       // autoplay: {
       // 	delay: 3000,

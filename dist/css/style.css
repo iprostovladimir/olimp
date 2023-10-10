@@ -564,28 +564,6 @@ textarea.input {
     margin-bottom: 1.5rem;
   }
 }
-.product__btn {
-  position: relative;
-}
-.product__btn::after {
-  content: "";
-  width: 0.0625rem;
-  height: 2rem;
-  background: #646464;
-  position: absolute;
-  top: 50%;
-  right: -2rem;
-  transform: translate(0, -50%);
-}
-@media (max-width: 61.99875em) {
-  .product__btn::after {
-    display: none;
-  }
-}
-.product__btn:last-child::after {
-  content: "";
-  display: none;
-}
 .product__button {
   font-size: 1.125rem;
   line-height: 1.875rem; /* 166.667% */
@@ -597,37 +575,53 @@ textarea.input {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  position: relative;
+}
+@media (max-width: 79.9375em) {
+  .product__button {
+    font-size: 0rem;
+    gap: 0rem;
+  }
 }
 @media (max-width: 61.99875em) {
   .product__button {
     padding: 0.5rem;
   }
 }
-.product__button span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-@media (max-width: 79.9375em) {
-  .product__button span {
-    font-size: 0rem;
-    gap: 0rem;
-  }
-}
-.product__button span::before {
+.product__button::before {
   content: "";
   mask: var(--icon) center center/contain no-repeat;
   -webkit-mask: var(--icon) center center/contain no-repeat;
   background: var(--color-whte);
   width: 2rem;
-  height: 2rem;
+  aspect-ratio: 1;
 }
 @media (min-width: 61.99875em) {
   .product__button:hover {
     border: 0.0625rem solid #303030;
     background: rgba(255, 255, 255, 0.2);
   }
+}
+.product__button::after {
+  content: "";
+  width: 0.0625rem;
+  height: 2rem;
+  background: #646464;
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+  transform: translate(0, -50%);
+}
+@media (max-width: 61.99875em) {
+  .product__button::after {
+    display: none;
+  }
+}
+.product__button:last-child::after {
+  content: "";
+  display: none;
 }
 @media (max-width: 79.9375em) {
   .product__calculator {
@@ -785,28 +779,28 @@ textarea.input {
     width: calc(100% + 6.25rem);
   }
 }
-.preview-product__img img,
-.preview-product__img picture {
+.preview-product__slide img,
+.preview-product__slide picture {
   width: 100%;
   height: 39.6875rem;
   max-width: 100%;
   object-fit: cover;
 }
 @media (max-width: 113.125em) {
-  .preview-product__img img,
-  .preview-product__img picture {
+  .preview-product__slide img,
+  .preview-product__slide picture {
     height: 27.1875rem;
   }
 }
 @media (max-width: 61.99875em) {
-  .preview-product__img img,
-  .preview-product__img picture {
+  .preview-product__slide img,
+  .preview-product__slide picture {
     height: 20.9375rem;
   }
 }
 @media (max-width: 47.99875em) {
-  .preview-product__img img,
-  .preview-product__img picture {
+  .preview-product__slide img,
+  .preview-product__slide picture {
     height: 15rem;
   }
 }
@@ -826,8 +820,8 @@ textarea.input {
 .thumbs-preview__slide.swiper-slide-thumb-active {
   opacity: 0.3;
 }
-.thumbs-preview__img img,
-.thumbs-preview__img picture {
+.thumbs-preview__slide img,
+.thumbs-preview__slide picture {
   width: 100%;
   max-width: 100%;
   height: 8.75rem;
@@ -835,14 +829,14 @@ textarea.input {
   object-fit: cover;
 }
 @media (max-width: 85.3125em) {
-  .thumbs-preview__img img,
-  .thumbs-preview__img picture {
+  .thumbs-preview__slide img,
+  .thumbs-preview__slide picture {
     height: 5.625rem;
   }
 }
 @media (max-width: 47.99875em) {
-  .thumbs-preview__img img,
-  .thumbs-preview__img picture {
+  .thumbs-preview__slide img,
+  .thumbs-preview__slide picture {
     height: 3.0625rem;
   }
 }
@@ -1400,10 +1394,11 @@ textarea.input {
     padding-left: 0rem;
   }
 }
-.texture-product__img img,
-.texture-product__img picture {
-  width: 7.875rem;
-  height: 7.875rem;
+.texture-product__slide img,
+.texture-product__slide picture {
+  --size: 126px;
+  width: var(--size);
+  height: var(--size);
   overflow: hidden;
   border-radius: 50%;
   max-width: 100%;
@@ -1411,17 +1406,15 @@ textarea.input {
   object-fit: cover;
 }
 @media (max-width: 61.99875em) {
-  .texture-product__img img,
-  .texture-product__img picture {
-    width: 5.625rem;
-    height: 5.625rem;
+  .texture-product__slide img,
+  .texture-product__slide picture {
+    --size: 90px;
   }
 }
 @media (max-width: 47.99875em) {
-  .texture-product__img img,
-  .texture-product__img picture {
-    width: 4.375rem;
-    height: 4.375rem;
+  .texture-product__slide img,
+  .texture-product__slide picture {
+    --size: 70px;
   }
 }
 @media (max-width: 61.99875em) {
