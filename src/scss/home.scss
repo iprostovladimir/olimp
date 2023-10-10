@@ -427,7 +427,7 @@
   // .thumbs-preview__slide
 
   &__slide {
-    transition: all $time $tr 0s;
+    // transition: all $time $tr 0s;
 
     &.swiper-slide-thumb-active {
       opacity: 0.3;

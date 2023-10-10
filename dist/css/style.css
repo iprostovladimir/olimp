@@ -814,9 +814,6 @@ textarea.input {
     max-width: 40.75rem;
   }
 }
-.thumbs-preview__slide {
-  transition: all 0.3s ease-out 0s;
-}
 .thumbs-preview__slide.swiper-slide-thumb-active {
   opacity: 0.3;
 }
